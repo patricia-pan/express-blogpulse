@@ -32,12 +32,12 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   db.article.findOne({
     where: { id: req.params.id },
-    include: [db.author]
+    include: [ {db.author}, {db.comment} ]
   })
   .then((article) => {
     if (!article) throw Error()
     console.log(article.author)
-    res.render('articles/show', { article: article })
+    res.render('articles/show', { article: article, comments: article.comments })
   })
   .catch((error) => {
     console.log(error)
