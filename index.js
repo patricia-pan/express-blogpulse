@@ -45,6 +45,14 @@ app.get('/404', (req, res) => {
 app.use('/authors', require('./controllers/authors'))
 app.use('/articles', require('./controllers/articles'))
 
+// After submitting a new comment on /articles/:id
+app.post('/comments', (req, res) => {
+  // req.body.articleId
+  // req.body.name
+  // req.body.content
+  // create new entry in comment method.
+})
+
 var server = app.listen(process.env.PORT || 3000, () => {
   rowdy.print()
 })
