@@ -51,6 +51,15 @@ app.post('/comments', (req, res) => {
   // req.body.name
   // req.body.content
   // create new entry in comment method.
+  db.comment.create({ // Creates a new entry each time. No longer have to migrate unless we add a new model.
+    name: req.body.name,
+    content: req.body.content,
+    articleId: req.body.articleId
+  }).then(newComment => {
+    console.log(newComment)
+})
+res.redirect(`/articles/${req.body.articleId}`)
+// process.exit() // Instead of waiting to time out, just tell it it can close out after it's done.
 })
 
 var server = app.listen(process.env.PORT || 3000, () => {
