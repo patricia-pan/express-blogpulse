@@ -10,25 +10,27 @@
 <hr /> <%# Creates a line across the page. %>
 <h4>Comments</h4>
 <% comments.forEach(comment => { %>
-  <div>
+  <div style="background-color:lightgrey; border:2px solid grey; padding:5px; border-radius:8px; margin:5px">
     <%= comment.content %> - <span style="font-style:italic"><%= comment.name %></span>
   </div>
 <% }) %>
 
 <hr />
-<h5>Add a Comment</h5>
+<h5>Comment on this post</h5>
 <form action='/comments' method='POST'>
   <input type="hidden" name="articleId" value="<%= article.id %>">
-
-    <label for="title"></label>
-    <input type="text" class="form-control" id="title" name="name" required placeholder="Write your name here">
+  
+  <label for="content"></label>
+  <textarea type="text" class="form-control" id="content" name="content" required placeholder="Write your comment here..."></textarea>
 
   <div class="form-group">
-    <label for="content"></label>
-    <textarea type="text" class="form-control" id="content" name="content" required placeholder="Write your comment here..."></textarea>
+    <label for="title"></label>
+    <input type="text" class="form-control" id="title" name="name" required placeholder="- Your name here">
   </div>
-
-  <input type="submit" class="btn btn-primary">
+  
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary">
+  </div>
 </form>
 
 
