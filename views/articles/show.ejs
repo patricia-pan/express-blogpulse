@@ -10,7 +10,7 @@
 <hr /> <%# Creates a line across the page. %>
 <h4>Comments</h4>
 <% comments.forEach(comment => { %>
-  <div style="background-color:lightgrey; border:2px solid grey; padding:5px; border-radius:8px; margin:5px">
+  <div style="background-color:rgb(232, 226, 226); border:2px solid lightgrey; padding:5px; border-radius:8px; margin:5px">
     <%= comment.content %> - <span style="font-style:italic"><%= comment.name %></span>
   </div>
 <% }) %>
