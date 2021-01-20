@@ -51,6 +51,27 @@ app.post('/comments', (req, res) => {
   // req.body.name
   // req.body.content
   // create new entry in comment method.
+
+  /*
+  var Comment = sequelize.define('comment', {
+    username: DataTypes.STRING,
+    mood: {
+      type: DataTypes.ENUM,
+      values: ['happy', 'sad', 'neutral']
+    }
+  }, {
+    hooks: {
+      beforeValidate: function(user, options) {
+        user.mood = 'happy'
+      },
+      afterValidate: function(user, options) {
+        user.username = 'Toni'
+      }
+    }
+  })
+  */
+
+
   db.comment.create({ // Creates a new entry each time. No longer have to migrate unless we add a new model.
     name: req.body.name,
     content: req.body.content,
