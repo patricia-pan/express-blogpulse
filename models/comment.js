@@ -14,6 +14,24 @@ module.exports = (sequelize, DataTypes) => {
       models.comment.belongsTo(models.article)
     }
   };
+
+  /*
+  var Comment = sequelize.define('comment', {
+    name: DataTypes.STRING,
+    content: DataTypes.STRING
+  }, {
+    hooks: {
+      beforeCreate: function(comment, options) {
+        comment.content = req.body.content.toLowerCase()
+      },
+      afterCreate: function(comment, options) {
+        comment.name = req.body.name
+      }
+    }
+  })
+  */
+
+
   comment.init({
     name: DataTypes.STRING,
     content: DataTypes.TEXT,
